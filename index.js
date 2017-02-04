@@ -1,8 +1,25 @@
 var express = require( 'express' );
 // body parsing middleware
 var bodyParser = require('body-parser');
+//twilio for text!
+var twilio = require('twilio');
 
-var app = express(); // creates an instance of an express application
+var app = express(); // creates an instance of an express application.
+
+//reads the secret twilio file
+ var fs = require("fs");
+ var secretContents = fs.readFileSync("twilio-secret.json");
+
+// Find your account sid and auth token in your Twilio account Console.
+var client = twilio(secretContents.pid, secretContents.auth);
+
+client.messages.create({
+    to: "+14159397520",
+    from: "+14156836411",
+    body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+}, function(err, message) {
+    console.log(message.sid);
+});
 
 // body parsing middleware
 var bodyParser = require('body-parser');
