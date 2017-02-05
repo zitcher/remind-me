@@ -74,6 +74,8 @@ app.post('/delete', function(req, res) {
   } catch (e) {
     res.status(400).send("Date not valid. " + e);
   }
+	console.log("deleted!");
+	res.end('{"success" : "Deleted Successfully", "status" : 200}');
 });
 
 app.get('/',function(req,res){

@@ -4,9 +4,30 @@ $(document).ready(function() {
   $("#submit-button").click(function() {
 		number = $("#num").val();
 		$(".add-reminder").fadeIn();
-	  	$("#textme").show();
-	  	$(".init-info").fadeOut();
+	  	$("#textnum").show();
 	  	$("#textnum").html(number);
+	  	$(".init-info").fadeOut();
+	});
+	
+	$(".delete").click(function(){
+		alert("ran");
+		var delText = this.parentElement.parentElement.parentElement.children[0].children[0].children[0].innerHTML;
+		var delTS = this.parentElement.children[0].innerHTML;
+		var delTime = delTS.substring(0, 5);
+		var delDate = delTS.substring(6, 17);
+		$.ajax({
+			type: 'POST',
+			url: '/delete',
+			data: {number: number, text: delText, date: delDate, time: delTime},
+			success: function(){
+				console.log("delete success!");
+				var delRow = $().add(this.parentElement.parentElement.parentElement);
+				delRow.remove();
+			},
+			error: function(){
+				console.log("delete failure!");
+			}
+		});
 	});
 	
 	$("#setReminder").submit(function(){
@@ -34,27 +55,29 @@ $(document).ready(function() {
 						setTimeout(function(){
 							deletebtn.fadeOut();
 						}, 3000);
-					});
-					
-					$(".delete").click(function(){
-						var delText = this.parentElement.parentElement.parentElement.children[0].children[0].children[0].innerHTML;
-						var delTS = this.parentElement.children[0].innerHTML;
-						var delTime = delTS.substring(0, 5);
-						var delDate = delTS.substring(6, 17);
-						$.ajax({
-							type: 'POST',
-							url: '/delete',
-							data: {number: number, text: delText, date: delDate, time: delTime},
-							success: function(){
-								console.log("delete success!");
-								var delRow = $().add(this.parentElement.parentElement.parentElement);
-								delRow.remove();
-							},
-							error: function(){
-								console.log("delete failure!");
-							}
+						
+						$(".delete").click(function(){
+							var delText = this.parentElement.parentElement.parentElement.children[0].children[0].children[0].innerHTML;
+							var delTS = this.parentElement.children[0].innerHTML;
+							var delRow = $().add(this.parentElement.parentElement.parentElement);
+							var delTime = delTS.substring(0, 5);
+							var delDate = delTS.substring(6, 17);
+							$.ajax({
+								type: 'POST',
+								url: '/delete',
+								data: {number: number, text: delText, date: delDate, time: delTime},
+								success: function(){
+									console.log("delete success!");
+									delRow.remove();
+								},
+								error: function(){
+									console.log("delete failure!");
+								}
+							});
+							alert("ran");
 						});
-				});},
+					});
+					},
 				error: function(){
 					console.log("Failure!");
 					$("#error").fadeIn();
