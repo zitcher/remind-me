@@ -4,14 +4,6 @@ $(document).ready(function() {
     $("#submit-button").click(function() {
 		number = $("#num").val();
 		$(".main-ui").show();
-		$("#submit-info").submit(function() {
-			$.ajax({
-				type: 'POST',
-				url: '/phone',
-				data: {phone: number}
-			});
-			return false;
-		}); 
 	});
 	
 	$("#add-reminder").click(function() {
