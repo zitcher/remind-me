@@ -106,15 +106,6 @@ function sendText(){
     }, function(err, message) {
         console.log(message.sid);
     });
-    app.post('/timeUp', function(req, res) {
-      console.log(req.body.objectData);
-      res.contentType('json');
-      res.send(
-        {
-          deleted: JSON.stringify({response:'deleted'})
-        });
-    });
-    console.log("Sending delete request!");
     sendText();
   }
 }

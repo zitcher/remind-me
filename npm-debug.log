@@ -1,35 +1,35 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
-1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli [ '/usr/local/Cellar/node/7.5.0/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
 1 verbose cli   'start' ]
-2 info using npm@3.10.9
-3 info using node@v6.9.2
+2 info using npm@4.1.2
+3 info using node@v7.5.0
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle remind-me@1.0.0~prestart: remind-me@1.0.0
 6 silly lifecycle remind-me@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle remind-me@1.0.0~start: remind-me@1.0.0
 8 verbose lifecycle remind-me@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle remind-me@1.0.0~start: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\Varun Mathur\Desktop\Web Projects\JS\Node\remind-me\node_modules\.bin;C:\Users\Varun Mathur\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Varun Mathur\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Skype\Phone;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Apache\Maven\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\MATLAB\R2016a\runtime\win64;C:\Program Files\MATLAB\R2016a\bin;C:\Program Files (x86)\Common Files\Propellerhead Software\ReWire;C:\Program Files\Common Files\Propellerhead Software\ReWire;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Users\Varun Mathur\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Apache\Maven\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\Users\Varun Mathur\AppData\Roaming\npm;C:\Users\Varun Mathur\AppData\Local\.meteor;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
-10 verbose lifecycle remind-me@1.0.0~start: CWD: C:\Users\Varun Mathur\Desktop\Web Projects\JS\Node\remind-me
-11 silly lifecycle remind-me@1.0.0~start: Args: [ '/d /s /c', 'node index.js' ]
+9 verbose lifecycle remind-me@1.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/zacharyhoffman/Desktop/Codeing/NodeJS/remind-me/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin
+10 verbose lifecycle remind-me@1.0.0~start: CWD: /Users/zacharyhoffman/Desktop/Codeing/NodeJS/remind-me
+11 silly lifecycle remind-me@1.0.0~start: Args: [ '-c', 'node index.js' ]
 12 silly lifecycle remind-me@1.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle remind-me@1.0.0~start: Failed to exec start script
 14 verbose stack Error: remind-me@1.0.0 start: `node index.js`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:255:16)
+14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:279:16)
 14 verbose stack     at emitTwo (events.js:106:13)
-14 verbose stack     at EventEmitter.emit (events.js:191:7)
-14 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at EventEmitter.emit (events.js:192:7)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
 14 verbose stack     at emitTwo (events.js:106:13)
-14 verbose stack     at ChildProcess.emit (events.js:191:7)
-14 verbose stack     at maybeClose (internal/child_process.js:877:16)
+14 verbose stack     at ChildProcess.emit (events.js:192:7)
+14 verbose stack     at maybeClose (internal/child_process.js:890:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid remind-me@1.0.0
-16 verbose cwd C:\Users\Varun Mathur\Desktop\Web Projects\JS\Node\remind-me
-17 error Windows_NT 10.0.14393
-18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
-19 error node v6.9.2
-20 error npm  v3.10.9
+16 verbose cwd /Users/zacharyhoffman/Desktop/Codeing/NodeJS/remind-me
+17 error Darwin 15.6.0
+18 error argv "/usr/local/Cellar/node/7.5.0/bin/node" "/usr/local/bin/npm" "start"
+19 error node v7.5.0
+20 error npm  v4.1.2
 21 error code ELIFECYCLE
 22 error remind-me@1.0.0 start: `node index.js`
 22 error Exit status 1
