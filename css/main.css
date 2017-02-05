@@ -1,20 +1,32 @@
 @charset "utf-8";
-.main-ui, #textme{
+.add-reminder, .view-reminders, #textme{
 	display: none;
-}
-
-.nav{
-	background-color: 
 }
 
 .container-fluid{
 	background-color: darkgray;
 }
 
+.dropdown-menu p{
+	padding: 2px 20px;
+	margin: 0px;
+}
+
 #textme{
 	position: absolute;
 	right: 20px;
 	top: 10px;
+}
+
+#date, #time{
+	max-width: 180px;
+}
+
+.datetime *{
+	display: inline-block;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
 }
 
 #footer{
@@ -36,12 +48,14 @@
     width: 100px;
 }
 
-h1{
-	color:maroon;
+.navbar-brand{
+	color: maroon !important;
 	font-family:Garamond;
 	font-weight:bold;
 	font-variant:small-caps;
+	font-size: 30px;
 }
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -49,12 +63,12 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     margin: 0;
 }
-h3{
+
+h1, h2, h3, h4, h5, h6{
 	color:maroon;
 	font-family:Garamond;
 	font-weight:bold;
 	font-variant:small-caps;
 }
-#reminder{
-	width:500px;
-}
+
+
