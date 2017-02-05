@@ -3,9 +3,23 @@
 	display: none;
 }
 
+.nav{
+	background-color: 
+}
+
+.container-fluid{
+	background-color: darkgray;
+}
+
 #textme{
 	position: absolute;
-	right: 0px;
+	right: 20px;
+	top: 10px;
+}
+
+#footer{
+	width: 100%;
+	position: absolute;
 	bottom: 0px;
 }
 

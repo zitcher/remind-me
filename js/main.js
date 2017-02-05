@@ -6,6 +6,7 @@ $(document).ready(function() {
 		$(".main-ui").show();
 	  	$("#textme").show();
 	  	$(".init-info").hide();
+	  	$("#textme").html("Currently texting: " + number);
 	});
 	
 	$("#setReminder").submit(function(){
