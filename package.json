@@ -17,5 +17,14 @@
     "node-schedule": "^1.2.0",
     "twilio": "^2.11.1",
     "urlencode": "^1.1.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zachooz/remind-me.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zachooz/remind-me/issues"
+  },
+  "homepage": "https://github.com/zachooz/remind-me#readme"
 }

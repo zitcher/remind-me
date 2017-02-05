@@ -6,28 +6,30 @@ $(document).ready(function() {
 		$(".main-ui").show();
 	  	$(".init-info").hide();
 	});
-
-	$("#add-reminder").click(function() {
+	
+	$("#setReminder").submit(function(){
 		var text = $("#reminder").val();
 		var date = $("#date").val();
 		var time = $("#time").val();
-		//var newRem = new Reminder(text, date, time);
-		$("#setReminder").submit(function() {
 			$.ajax({
 				type: 'POST',
 				url: '/reminder',
-				data: {number: number, text: text, date: date, time: time}
+				data: {number: number, text: text, date: date, time: time},
+				success: function(){
+					console.log("Success!");
+					var table = document.getElementById("table");
+					var newRow = table.insertRow(1);
+					var tableText = newRow.insertCell(0);
+					var tableTime = newRow.insertCell(1);
+					tableText.innerHTML = text;
+					tableTime.innerHTML = time + " " + parseDate(date);
+					document.getElementById("setReminder").reset();
+				},
+				error: function(){console.log("Failure!");}
 			});
-			return false;
-		});
-
-		var table = document.getElementById("table");
-		var newRow = table.insertRow(1);
-		var tableText = newRow.insertCell(0);
-		var tableTime = newRow.insertCell(1);
-		tableText.innerHTML = text;
-		tableTime.innerHTML = time + " " + parseDate(date);
-		document.getElementById("setReminder").reset();
+		
+		//alert("I ran");
+		return false;
 	});
 });
 
