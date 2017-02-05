@@ -5,20 +5,25 @@ var schedule = require('node-schedule');
 var fs = require("fs");
 var http = require('http');
 
+//my js files
+var parser = require(__dirname + '/parser');
+
 var app = express().use(json()); // creates an instance of an express application.
 // Find your account sid and auth token in your Twilio account Console.
 var client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
-
+app.use(express.static(__dirname + '/'));
 app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
-app.post('/phone', function(req, res) {
+
+
+app.post('/reminder', function(req, res) {
   var number = req.body.number,
-      message = req.body.message,
+      text = req.body.text,
+      date = req.body.date;
       time = req.body.time;
-  console.log("number: " + number + "\n" + "message: " + message + "\n" + "time: " + time)
   var scheduler = schedule.scheduleJob(time + " *", function() {
     client.messages.create({
         to: "+1" + number,
@@ -28,6 +33,10 @@ app.post('/phone', function(req, res) {
         console.log(message.sid);
     });
   });
+  console.log("number: " + number + "\n" +
+              "text: " + text + "\n" +
+              "date: " + parser.parseDate(date) + "\n" +
+              "time: " + time);
 });
 
 app.get('/',function(req,res){
