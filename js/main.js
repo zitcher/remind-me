@@ -13,7 +13,6 @@ $(document).ready(function() {
 		var text = $("#reminder").val();
 		var date = $("#date").val();
 		var time = $("#time").val();
-		$(".view-reminders").fadeIn();
 			$.ajax({
 				type: 'POST',
 				url: '/reminder',
@@ -24,17 +23,52 @@ $(document).ready(function() {
 					var newRow = table.insertRow(1);
 					var tableText = newRow.insertCell(0);
 					var tableTime = newRow.insertCell(1);
-					tableText.innerHTML = text;
-					tableTime.innerHTML = time + " " + parseDate(date);
+					tableText.innerHTML = "<div class='datetime'><p>"+text+"</p></div>";
+					tableTime.innerHTML = "<div class='datetime'><p>"+time + " " + date +"</p><div class='btn btn-danger delete'>Delete</div></div>";
 					document.getElementById("setReminder").reset();
-					$("#setReminder").reset();
-				},
-				error: function(){console.log("Failure!");}
+					$(".view-reminders").fadeIn();
+					
+					$("tr").click(function(){
+						var deletebtn = $().add(this.children[1].children[0].children[1]);
+						deletebtn.fadeIn();
+						setTimeout(function(){
+							deletebtn.fadeOut();
+						}, 3000);
+					});
+					
+					$(".delete").click(function(){
+						var delText = this.parentElement.parentElement.parentElement.children[0].children[0].children[0].innerHTML;
+						var delTS = this.parentElement.children[0].innerHTML;
+						var delTime = delTS.substring(0, 5);
+						var delDate = delTS.substring(6, 17);
+						$.ajax({
+							type: 'POST',
+							url: '/delete',
+							data: {number: number, text: delText, date: delDate, time: delTime},
+							success: function(){
+								console.log("delete success!");
+								var delRow = $().add(this.parentElement.parentElement.parentElement);
+								delRow.remove();
+							},
+							error: function(){
+								console.log("delete failure!");
+							}
+						});
+				});},
+				error: function(){
+					console.log("Failure!");
+					$("#error").fadeIn();
+					setTimeout(function(){
+						$("#error").fadeOut();
+					}, 4000);
+				}
 			});
 		
 		//alert("I ran");
 		return false;
 	});
+	
+	
 });
 
 function parseDate(date){
@@ -53,4 +87,8 @@ function parseDate(date){
 		day += "th ";
 	}
 	return day + month + " " + year;
+}
+
+function reverseParse(parsed){
+	
 }

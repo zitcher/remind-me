@@ -55,19 +55,29 @@
 				<p>Set a time:</p>
 				<input id="time" class="form-control" type="time">
 			</div>
-		  <input type="submit" class="btn btn-default" id="add-reminder">
+			<div class="datetime">
+	  		  <input type="submit" class="btn btn-default" id="add-reminder">
+		  		<div id="error" class="btn btn-danger">This reminder could not be added.</div>
+			</div>
 		</form>
 	   </div>
      
      <div class="col-lg-6 view-reminders">
-       <h3>Your Reminders</h3>
+       <h2>Your Reminders</h2>
 
        <table width="100%" border="1" id="table" class="table">
 		  <tbody>
 			<tr>
-				<th scope="col">Reminder</th>
-			  <th scope="col">Time</th>
-			</tr>
+				<th scope="col">
+					<div class="datetime">
+					  <p>Reminder</p>
+				  	</div>
+				</th>
+			 	<th scope="col">
+		    	  <div class="datetime">
+					  <p>Time</p>
+				  </div>
+			 	</th>
 		  </tbody>
 	  </table>
     </div>
@@ -75,45 +85,14 @@
 </div>
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bottomFixedNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-      <a class="navbar-brand" href="#">Brand</a></div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bottomFixedNavbar1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
+    <div class="row">
+		  <div class="col-xs-4">
+			  <a>About Us</a>
+		  </div>
+		  <div class="col-xs-4">
+			  <a>About RemindMe</a>
+		  </div>
+		  <div class="col-xs-4">Contact Us</div>
     </div>
     <!-- /.navbar-collapse -->
   </div>
