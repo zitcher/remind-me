@@ -59,6 +59,7 @@ $(document).ready(function() {
 						$(".delete").click(function(){
 							var delText = this.parentElement.parentElement.parentElement.children[0].children[0].children[0].innerHTML;
 							var delTS = this.parentElement.children[0].innerHTML;
+							var delRow = $().add(this.parentElement.parentElement.parentElement);
 							var delTime = delTS.substring(0, 5);
 							var delDate = delTS.substring(6, 17);
 							$.ajax({
@@ -67,7 +68,6 @@ $(document).ready(function() {
 								data: {number: number, text: delText, date: delDate, time: delTime},
 								success: function(){
 									console.log("delete success!");
-									var delRow = $().add(this.parentElement.parentElement.parentElement);
 									delRow.remove();
 								},
 								error: function(){
