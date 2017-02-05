@@ -4,12 +4,28 @@
 }
 
 .container-fluid{
-	background-color: darkgray;
+	background-color: #303638;
 }
 
 .dropdown-menu p{
 	padding: 2px 20px;
 	margin: 0px;
+}
+
+.navbar-brand,
+.navbar-nav li a {
+    line-height: 60px;
+    height: 60px;
+    padding-top: 0;
+}
+
+.navbar-default .navbar-nav > li > a{
+    color: #C9C9C9;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: #C9C9C9;
+    color: #323333;
 }
 
 #textme{
@@ -53,9 +69,9 @@
     width: 100px;
 }
 
-.navbar-brand{
-	color: maroon !important;
-	font-family:Garamond;
+.navbar-brand {
+	color: white !important;
+	font-family:Orbitron;
 	font-weight:bold;
 	font-variant:small-caps;
 	font-size: 30px;

@@ -11,9 +11,10 @@ module.exports = {
           0,
           0);
   },
+  parseNumber: function () {
+    // whatever
+  }
 };
-
-
 
 function removeZero(date){
   try {

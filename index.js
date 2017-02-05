@@ -19,8 +19,9 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 
-dateArray = [];
+var id = 0;
 
+//dataStructure that goes in the dateArray
 function timedText(number, message, date){
   this.number = number;
   this.message = message;
@@ -28,32 +29,50 @@ function timedText(number, message, date){
   //new Date(year, month, day, hours, minutes, seconds, milliseconds);
 }
 
+//recieves the information from the submit button on the website and adds
+//a corresponding timedText to the dateArray
 app.post('/reminder', function(req, res) {
   var number = req.body.number,
       message = req.body.text,
-      date = req.body.date;
+      date = req.body.date,
       time = req.body.time;
 
-  var date = parser.parseDate(date, time);
+  parsedDate = parser.parseDate(date, time);
 
-  /*var scheduler = schedule.scheduleJob(time + " *", function() {
-    client.messages.create({
-        to: "+1" + number,
-        from: "+14156836411",
-        body: message,
-    }, function(err, message) {
-        console.log(message.sid);
-    });
-  });*/
   console.log("number: " + "+1" + number + "\n" +
               "text: " + message + "\n" +
-              "date: " + date);
+              "date: " + parsedDate);
   if(date < new Date()) {
     res.status(400).send("Can't set a reminder for a date in the past.");
   } else {
-    dateHandler.addDate(dateArray, new timedText("+1" + number, message, date), 0, dateArray.length);
-    console.log(dateArray);
+    try {
+      dateHandler.addDate(dateHandler.dateArray, new timedText(number, message, parsedDate), 0, dateHandler.dateArray.length);
+    } catch (e) {
+      res.status(400).send("Can't set a reminder for a date in the past.");
+    }
+    console.log(dateHandler.dateArray);
     res.end('{"success" : "Updated Successfully", "status" : 200}');
+  }
+});
+
+//recieves information to delete a reminder
+app.post('/delete', function(req, res) {
+  var number = req.body.number,
+      message = req.body.text,
+      date = req.body.date,
+      time = req.body.time;
+  try {
+    var parsedDate = parser.parseDate(date, time);
+    var delMessage = new timedText(number, message, parsedDate);
+
+    for(var i = 0; i < dateHandler.dateArray.length; i++){
+      if(dateHandler.dateArray[i] == delMessage) {
+        dateHandler.dataArray.splice(i, 1);
+        break;
+      }
+    }
+  } catch (e) {
+    res.status(400).send("Date not valid. " + e);
   }
 });
 
@@ -61,17 +80,32 @@ app.get('/',function(req,res){
      res.sendFile(__dirname + '/index.html');
 });
 
-app.listen('3000', function(){
+app.listen('4000', function(){
   console.log("Server running");
 });
 
-/*
-var scheduler = schedule.scheduleJob('10 43 17 4 2 *', function(){
-  client.messages.create({
-      to: "+14159397520",
-      from: "+14156836411",
-      body: "Is it 5:43?",
-  }, function(err, message) {
-      console.log(message.sid);
-  });
-});*/
+
+//Handles sending first text from array
+function sendText(){
+  var curDate = new Date();
+  var firstText = dateHandler.dateArray.shift();
+  if (firstText != undefined && curDate > firstText.date) {
+    console.log(firstText.number);
+    console.log(firstText.message);
+    client.messages.create({
+        to: "+" + firstText.number,
+        from: "+14156836411",
+        body: firstText.message,
+    }, function(err, message) {
+        console.log(message.sid);
+    });
+    sendText();
+  }
+}
+
+//handles checking array every minute
+var checkTexts = schedule.scheduleJob('*/1 * * * *', function(){
+  console.log("Checking texts!");
+  sendText();
+  console.log(dateHandler.dateArray);
+});
