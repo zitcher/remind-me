@@ -76,17 +76,11 @@ app.post('/delete', function(req, res) {
   } catch (e) {
     res.status(400).send("Date not valid. " + e);
   }
-<<<<<<< HEAD
-	console.log("deleted!");
-	res.end('{"success" : "Deleted Successfully", "status" : 200}');
-=======
-
   if (deleted = true){
     res.end('{"success" : "Updated Successfully", "status" : 200}');
   } else {
     res.status(400).send("Entry not found. ");
   }
->>>>>>> c5e22d4f124c5bc8d738e1ddd173000dac101146
 });
 
 app.get('/',function(req,res){
