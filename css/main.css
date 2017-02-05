@@ -21,10 +21,10 @@
 }
 
 #footer p{
-	font-size: 15px;
+	font-size: 18px;
 	color: #C9C9C9;
 	font-family: Rubik;
-	height: 40px;
+	padding: 15px;
 }
 
 .navbar-brand,
