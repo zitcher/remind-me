@@ -3,16 +3,17 @@ $(document).ready(function() {
 
   $("#submit-button").click(function() {
 		number = $("#num").val();
-		$(".main-ui").show();
+		$(".add-reminder").fadeIn();
 	  	$("#textme").show();
-	  	$(".init-info").hide();
-	  	$("#textme").html("Currently texting: " + number);
+	  	$(".init-info").fadeOut();
+	  	$("#textnum").html(number);
 	});
 	
 	$("#setReminder").submit(function(){
 		var text = $("#reminder").val();
 		var date = $("#date").val();
 		var time = $("#time").val();
+		$(".view-reminders").fadeIn();
 			$.ajax({
 				type: 'POST',
 				url: '/reminder',
@@ -26,6 +27,7 @@ $(document).ready(function() {
 					tableText.innerHTML = text;
 					tableTime.innerHTML = time + " " + parseDate(date);
 					document.getElementById("setReminder").reset();
+					$("#setReminder").reset();
 				},
 				error: function(){console.log("Failure!");}
 			});
