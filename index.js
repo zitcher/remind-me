@@ -76,7 +76,6 @@ app.post('/delete', function(req, res) {
   } catch (e) {
     res.status(400).send("Date not valid. " + e);
   }
-
   if (deleted = true){
     res.end('{"success" : "Updated Successfully", "status" : 200}');
   } else {

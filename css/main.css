@@ -5,11 +5,26 @@
 
 .container-fluid{
 	background-color: #303638;
-}
+} 
 
 .dropdown-menu p{
 	padding: 2px 20px;
 	margin: 0px;
+}
+
+#footer{
+	min-height: 50px;
+	position: absolute;
+	bottom: 0px;
+	background-color: #323333;
+	text-align: center;
+}
+
+#footer p{
+	font-size: 18px;
+	color: #C9C9C9;
+	font-family: Rubik;
+	padding: 15px;
 }
 
 .navbar-brand,
