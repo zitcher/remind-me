@@ -30,3 +30,21 @@ $(document).ready(function() {
 		document.getElementById("setReminder").reset();
 	});
 });
+
+function parseDate(date){
+	var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	var string = date.toString();
+	var year = string.substring(0, 4);
+	var month = months[parseInt(string.substring(5, 7)) - 1];
+	var day = parseInt(string.substring(8,10));
+	if(day%10 === 1){
+		day += "st ";
+	} else if(day%10 === 2){
+		day += "nd ";
+	} else if(day%10 === 3){
+		day += "rd ";
+	} else{
+		day += "th ";
+	}
+	return day + month + " " + year;
+}
