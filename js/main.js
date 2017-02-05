@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var number;
 
-    $("#submit-button").click(function() {
+  $("#submit-button").click(function() {
 		number = $("#num").val();
 		$(".main-ui").show();
 	});

@@ -2,4 +2,15 @@
 .main-ui{
 	display: block;
 }
-
+.divInput {
+    -moz-appearance: textfield-multiline;
+    -webkit-appearance: textarea;
+    border: 4px solid black;
+    font: medium -moz-fixed;
+    font: -webkit-small-control;
+    height: 28px;
+    overflow: auto;
+    padding: 10px;
+    resize: both;
+    width: 100px;
+}

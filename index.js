@@ -35,7 +35,7 @@ app.post('/reminder', function(req, res) {
   });*/
   console.log("number: " + number + "\n" +
               "text: " + text + "\n" +
-              "date: " + parser.parseDate(date) + "\n" +
+              "date: " + date + "\n" +
               "time: " + time);
 });
 
