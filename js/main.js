@@ -36,16 +36,5 @@ $(document).ready(function() {
 		tableText.innerHTML = text;
 		tableTime.innerHTML = time + " " + date;
 		document.getElementById("setReminder").reset();
-		/*var tableRow = document.createElement("TR");
-		var child1 = document.createElement("TD");
-		var child2 = document.createElement("TD");
-		var t1 = document.createTextNode(text);
-		var t2 = document.createTextNode(date + " " + time);
-		tableRow.appendChild(child1.appendChild(t1));
-		tableRow.appendChild(child2.appendChild(t2));*/
-		//document.body.appendChild(tableRow);	
-		//parentElement.insertBefore(newElement, parentElement.children[2]);
-		//$("#table").appendChild(tableRow);
-
 	});
 });
