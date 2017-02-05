@@ -1,11 +1,11 @@
 $(document).ready(function() {
 	var number;
-	
+
     $("#submit-button").click(function() {
 		number = $("#num").val();
 		$(".main-ui").show();
 	});
-	
+
 	$("#add-reminder").click(function() {
 		var text = $("#reminder").val();
 		var date = $("#date").val();
@@ -15,12 +15,12 @@ $(document).ready(function() {
 			$.ajax({
 				type: 'POST',
 				url: '/reminder',
-				data: {phone: number, text: text, date: date, time: time}
+				data: {number: number, text: text, date: date, time: time}
 			});
 			$(".main-ui").show();
 			return false;
 		});
-		
+
 		var table = document.getElementById("table");
 		var newRow = table.insertRow(1);
 		var tableText = newRow.insertCell(0);

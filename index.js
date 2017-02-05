@@ -24,7 +24,7 @@ app.post('/reminder', function(req, res) {
       text = req.body.text,
       date = req.body.date;
       time = req.body.time;
-  var scheduler = schedule.scheduleJob(time + " *", function() {
+  /*var scheduler = schedule.scheduleJob(time + " *", function() {
     client.messages.create({
         to: "+1" + number,
         from: "+14156836411",
@@ -32,7 +32,7 @@ app.post('/reminder', function(req, res) {
     }, function(err, message) {
         console.log(message.sid);
     });
-  });
+  });*/
   console.log("number: " + number + "\n" +
               "text: " + text + "\n" +
               "date: " + parser.parseDate(date) + "\n" +
