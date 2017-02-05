@@ -19,22 +19,22 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 
-dates = [];
+dateArray = [];
 
-function text(number, message, date, time, builtInDate){
+function timedText(number, message, date){
   this.number = number;
   this.message = message;
-  this.dateTime = "0 " + time + " " + date + " *";
   this.date = date;
   //new Date(year, month, day, hours, minutes, seconds, milliseconds);
 }
 
 app.post('/reminder', function(req, res) {
   var number = req.body.number,
-      text = req.body.text,
+      message = req.body.text,
       date = req.body.date;
       time = req.body.time;
 
+  var date = parser.parseDate(date, time);
 
   /*var scheduler = schedule.scheduleJob(time + " *", function() {
     client.messages.create({
@@ -46,11 +46,15 @@ app.post('/reminder', function(req, res) {
     });
   });*/
   console.log("number: " + "+1" + number + "\n" +
-              "text: " + text + "\n" +
-              "date: " + parser.parseDate(date) + "\n" +
-              "time: " + parser.parseTime(time));
-
-  res.end('{"success" : "Updated Successfully", "status" : 200}');
+              "text: " + message + "\n" +
+              "date: " + date);
+  if(date < new Date()) {
+    res.status(400).send("Can't set a reminder for a date in the past.");
+  } else {
+    dateHandler.addDate(dateArray, new timedText("+1" + number, message, date), 0, dateArray.length);
+    console.log(dateArray);
+    res.end('{"success" : "Updated Successfully", "status" : 200}');
+  }
 });
 
 app.get('/',function(req,res){

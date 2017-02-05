@@ -1,17 +1,18 @@
 module.exports = {
   parseDate: function (date, time) {
     var dateArray = date.split("-");
-    return removeZero(dateArray[1]) + " " + removeZero(dateArray[2]);
-  },
-  parseTime: function (time) {
-    var dateArray = time.split(":");
-    return removeZero(dateArray[1]) + " " + removeZero(dateArray[0]);
+    var timeArray = time.split(":");
+    return new Date(
+          parseInt(removeZero(dateArray[0])),
+          parseInt(removeZero(dateArray[1])-1),
+          parseInt(removeZero(dateArray[2])),
+          parseInt(removeZero(timeArray[0])),
+          parseInt(removeZero(timeArray[1])),
+          0,
+          0);
   },
   parseNumber: function () {
     // whatever
-  },
-  parseDateSortable: function(date){
-
   }
 };
 
