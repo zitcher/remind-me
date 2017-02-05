@@ -1,6 +1,6 @@
 @charset "utf-8";
 .main-ui{
-	display: block;
+	display: none;
 }
 .divInput {
     -moz-appearance: textfield-multiline;

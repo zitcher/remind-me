@@ -4,6 +4,7 @@ $(document).ready(function() {
   $("#submit-button").click(function() {
 		number = $("#num").val();
 		$(".main-ui").show();
+	  	$(".init-info").hide();
 	});
 
 	$("#add-reminder").click(function() {
@@ -17,7 +18,6 @@ $(document).ready(function() {
 				url: '/reminder',
 				data: {number: number, text: text, date: date, time: time}
 			});
-			$(".main-ui").show();
 			return false;
 		});
 
@@ -26,7 +26,7 @@ $(document).ready(function() {
 		var tableText = newRow.insertCell(0);
 		var tableTime = newRow.insertCell(1);
 		tableText.innerHTML = text;
-		tableTime.innerHTML = time + " " + date;
+		tableTime.innerHTML = time + " " + parseDate(date);
 		document.getElementById("setReminder").reset();
 	});
 });
