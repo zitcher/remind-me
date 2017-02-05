@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var number;
-	
+
     $("#submit-button").click(function() {
 		number = $("#num").val();
 		$("#submit-info").submit(function() {
@@ -11,9 +11,9 @@ $(document).ready(function() {
 			});
 			$(".main-ui").show();
 			return false;
-		}); 
+		});
 	});
-	
+
 	$("#add-reminder").click(function() {
 		var text = $("#reminder").val();
 		var date = $("#date").val();
@@ -23,7 +23,7 @@ $(document).ready(function() {
 			$.ajax({
 				type: 'POST',
 				url: '/reminder',
-				data: {phone: number, text: text, date: date, time: time}
+				data: {number: number, text: text, date: date, time: time}
 			});
 			$(".main-ui").show();
 			return false;
@@ -35,7 +35,7 @@ $(document).ready(function() {
 		var t2 = document.createTextNode(date + " " + time);
 		tableRow.appendChild(child1.appendChild(t1));
 		tableRow.appendChild(child2.appendChild(t2));
-		//document.body.appendChild(tableRow);	
+		//document.body.appendChild(tableRow);
 		//parentElement.insertBefore(newElement, parentElement.children[2]);
 		$("#table").appendChild(tableRow);
 
