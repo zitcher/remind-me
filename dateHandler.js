@@ -7,8 +7,6 @@ module.exports = {
   addDate: function(array, date, start, end){
     while(true) {
       curPos = Math.floor((start + end) / 2);
-      console.log("start" + start);
-      console.log("end" + end);
       curDate = array[curPos];
       if (start >= end) {
         if (curDate === undefined) {
