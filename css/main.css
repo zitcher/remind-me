@@ -1,7 +1,28 @@
 @charset "utf-8";
-.main-ui{
+.main-ui, #textme{
 	display: none;
 }
+
+.nav{
+	background-color: 
+}
+
+.container-fluid{
+	background-color: darkgray;
+}
+
+#textme{
+	position: absolute;
+	right: 20px;
+	top: 10px;
+}
+
+#footer{
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+}
+
 .divInput {
     -moz-appearance: textfield-multiline;
     -webkit-appearance: textarea;
@@ -13,4 +34,27 @@
     padding: 10px;
     resize: both;
     width: 100px;
+}
+
+h1{
+	color:maroon;
+	font-family:Garamond;
+	font-weight:bold;
+	font-variant:small-caps;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+h3{
+	color:maroon;
+	font-family:Garamond;
+	font-weight:bold;
+	font-variant:small-caps;
+}
+#reminder{
+	width:500px;
 }

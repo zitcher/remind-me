@@ -4,7 +4,9 @@ $(document).ready(function() {
   $("#submit-button").click(function() {
 		number = $("#num").val();
 		$(".main-ui").show();
+	  	$("#textme").show();
 	  	$(".init-info").hide();
+	  	$("#textme").html("Currently texting: " + number);
 	});
 	
 	$("#setReminder").submit(function(){
