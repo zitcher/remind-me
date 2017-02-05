@@ -42,7 +42,7 @@ app.post('/reminder', function(req, res) {
   console.log("number: " + "+1" + number + "\n" +
               "text: " + message + "\n" +
               "date: " + parsedDate);
-  if(date < new Date()) {
+  if(parsedDate < new Date()) {
     res.status(400).send("Can't set a reminder for a date in the past.");
   } else {
     try {
@@ -61,6 +61,7 @@ app.post('/delete', function(req, res) {
       message = req.body.text,
       date = req.body.date,
       time = req.body.time;
+  var deleted = false;
   try {
     var parsedDate = parser.parseDate(date, time);
     var delMessage = new timedText(number, message, parsedDate);
@@ -68,14 +69,24 @@ app.post('/delete', function(req, res) {
     for(var i = 0; i < dateHandler.dateArray.length; i++){
       if(dateHandler.dateArray[i] == delMessage) {
         dateHandler.dataArray.splice(i, 1);
+        deleted = true
         break;
       }
     }
   } catch (e) {
     res.status(400).send("Date not valid. " + e);
   }
+<<<<<<< HEAD
 	console.log("deleted!");
 	res.end('{"success" : "Deleted Successfully", "status" : 200}');
+=======
+
+  if (deleted = true){
+    res.end('{"success" : "Updated Successfully", "status" : 200}');
+  } else {
+    res.status(400).send("Entry not found. ");
+  }
+>>>>>>> c5e22d4f124c5bc8d738e1ddd173000dac101146
 });
 
 app.get('/',function(req,res){
