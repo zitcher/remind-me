@@ -7,6 +7,7 @@ var http = require('http');
 
 //my js files
 var parser = require(__dirname + '/parser');
+var dateHandler = require(__dirname + '/dateHandler');
 
 var app = express().use(json()); // creates an instance of an express application.
 // Find your account sid and auth token in your Twilio account Console.
@@ -18,12 +19,23 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 
+dates = [];
+
+function text(number, message, date, time, builtInDate){
+  this.number = number;
+  this.message = message;
+  this.dateTime = "0 " + time + " " + date + " *";
+  this.date = date;
+  //new Date(year, month, day, hours, minutes, seconds, milliseconds);
+}
 
 app.post('/reminder', function(req, res) {
   var number = req.body.number,
       text = req.body.text,
       date = req.body.date;
       time = req.body.time;
+
+
   /*var scheduler = schedule.scheduleJob(time + " *", function() {
     client.messages.create({
         to: "+1" + number,
@@ -33,10 +45,12 @@ app.post('/reminder', function(req, res) {
         console.log(message.sid);
     });
   });*/
-  console.log("number: " + number + "\n" +
+  console.log("number: " + "+1" + number + "\n" +
               "text: " + text + "\n" +
-              "date: " + date + "\n" +
-              "time: " + time);
+              "date: " + parser.parseDate(date) + "\n" +
+              "time: " + parser.parseTime(time));
+
+  res.end('{"success" : "Updated Successfully", "status" : 200}');
 });
 
 app.get('/',function(req,res){
