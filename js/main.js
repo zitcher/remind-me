@@ -4,9 +4,9 @@ $(document).ready(function() {
   $("#submit-button").click(function() {
 		number = $("#num").val();
 		$(".add-reminder").fadeIn();
-	  	$("#textme").show();
-	  	$(".init-info").fadeOut();
+	  	$("#textnum").show();
 	  	$("#textnum").html(number);
+	  	$(".init-info").fadeOut();
 	});
 	
 	$(".delete").click(function(){
