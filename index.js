@@ -107,6 +107,8 @@ function sendText(){
         console.log(message.sid);
     });
     sendText();
+  } else if ( firstText != undefined && curDate <= firstText.date ) {
+    dateHandler.dateArray.unshift(firstText);
   }
 }
 
